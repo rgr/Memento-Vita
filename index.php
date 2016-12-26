@@ -172,6 +172,7 @@ function importData($filename = "data.json") {
   <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' href='css/normalize.css'>
   <link rel='stylesheet' href='css/skeleton.css'>
+  <link rel="shortcut icon" href="favicon.ico"/>
 
   <script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
   <script src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js'></script>
