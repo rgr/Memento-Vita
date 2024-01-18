@@ -10,15 +10,15 @@
         'bg-green-500 text-white' => Carbon\Carbon::parse($date)->isCurrentWeek(),
         ])>
             <p class="flex flex-col text-xs">
-                <span class="font-bold text-base mb-3" x-text="date"></span>
+                <span class="mb-3 text-base font-bold" x-text="date"></span>
                 <div>
-                    <span class="font-semibold italic">Week</span> : <span x-text="week"></span>
+                    <span class="italic font-semibold">Week</span> : <span x-text="week"></span>
                 </div>
                 <div>
-                    <span class="font-semibold italic">Age</span> : <span x-text="age"></span>
+                    <span class="italic font-semibold">Age</span> : <span x-text="age"></span>
                 </div>
                 <div>
-                    <span class="font-semibold italic">Life</span> : <span x-text="life"></span>
+                    <span class="italic font-semibold">Life</span> : <span x-text="life"></span>
                 </div>
             </p>
         </div>

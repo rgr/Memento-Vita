@@ -18,6 +18,8 @@ class Event extends Component
 
     public array $weeks;
 
+    public int $currentWeek;
+
     public int $life;
 
     public int $lifeTotal;
@@ -28,6 +30,7 @@ class Event extends Component
         $this->begin = Carbon::parse($event['begin'])->locale(app()->getLocale())->isoFormat('D MMMM Y');
         $this->end = Carbon::parse($event['end'])->locale(app()->getLocale())->isoFormat('D MMMM Y');
         $this->weeks = $event['weeks'];
+        $this->currentWeek = Carbon::parse($birth)->diffInWeeks(now());
         $this->life = $this->getEventLifeDuration($birth, now()->format('d-m-Y'), count($this->weeks));
         $this->lifeTotal = $this->getEventLifeDuration($birth, $death, count($this->weeks));
     }
