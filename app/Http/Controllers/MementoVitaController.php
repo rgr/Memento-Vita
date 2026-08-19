@@ -38,7 +38,7 @@ class MementoVitaController extends Controller
             'name' => $data['user']['name'],
             'birth' => $birth,
             'death' => $death,
-            'weeks' => $birth->diffInWeeks($death),
+            'weeks' => (int) $birth->diffInWeeks($death, true),
         ];
 
         // Events & categories
@@ -69,7 +69,10 @@ class MementoVitaController extends Controller
                         $end = $period['end'];
                     }
                     // Get the weeks number between the begin and the end of the period
-                    $weeks = array_merge($weeks, range($birth->diffInWeeks(Carbon::parse($period['begin'])), $birth->diffInWeeks(Carbon::parse($period['end']))));
+                    $weeks = array_merge($weeks, range(
+                        (int) $birth->diffInWeeks(Carbon::parse($period['begin']), true),
+                        (int) $birth->diffInWeeks(Carbon::parse($period['end']), true)
+                    ));
                 }
                 $categories[$category]['weeks'] = array_unique(array_merge($categories[$category]['weeks'], $weeks));
                 $categories[$category]['events'][] = [

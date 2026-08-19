@@ -18,7 +18,7 @@ trait DatesHelper
         $birth = Carbon::parse($birth);
         $date = Carbon::parse($date);
 
-        return $birth->diffInYears($date);
+        return (int) $birth->diffInYears($date, true);
     }
 
     public function getLifeProgress(string $birth, string $death, string $date): int
@@ -27,14 +27,14 @@ trait DatesHelper
         $death = Carbon::parse($death);
         $date = Carbon::parse($date);
 
-        return $birth->diffInDays($date) / $birth->diffInDays($death) * 100;
+        return (int) ($birth->diffInDays($date, true) / $birth->diffInDays($death, true) * 100);
     }
 
     public function getEventLifeDuration(string $from, string $to, int $weeks): int
     {
         $from = Carbon::parse($from);
-        $lifeDuration = $from->diffInWeeks($to);
+        $lifeDuration = $from->diffInWeeks($to, true);
 
-        return $weeks / $lifeDuration * 100;
+        return (int) ($weeks / $lifeDuration * 100);
     }
 }

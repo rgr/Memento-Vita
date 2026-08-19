@@ -26,7 +26,7 @@ class Week extends Component
     public function mount(int $week, array $data)
     {
         $this->week = $week;
-        $diff = Carbon::parse($data['user']['birth'])->diffInWeeks(now());
+        $diff = (int) Carbon::parse($data['user']['birth'])->diffInWeeks(now(), true);
         if ($diff == $this->week) {
             $this->status = 'current';
         } elseif ($diff < $this->week) {
